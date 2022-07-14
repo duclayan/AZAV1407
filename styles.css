@@ -1,0 +1,41 @@
+*{
+    text-align: center;
+}
+
+.row {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+
+.results{
+    width: 100%;
+    background-color: black;
+    height: 500px;
+}
+
+.col-1 {
+    background-color: blueviolet;
+    width: 40%;
+    height: 100%;
+}
+
+.col-2{
+    background-color: blue;
+    width: 60%;
+    height:100%
+}
+
+
+@media only screen and (min-width: 200px) and (max-width: 768px) {
+    .col-1{
+        width: 100%;
+        border: 1px solid black;
+        background-color: brown;
+    }
+    .col-2{
+        width: 100%;
+        border: 1px solid black;
+    }   
+}

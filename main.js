@@ -1,4 +1,4 @@
-const searchForm = document.querySelector('.search')
+const searchForm = document.querySelector('.search-form')
 const searchItem = document.querySelector('.search-item')
 const results = document.querySelector('.col-1')
 const resultItem = document.querySelectorAll('.results-item')
