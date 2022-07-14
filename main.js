@@ -1,6 +1,7 @@
 const searchForm = document.querySelector('.search-form')
 const searchItem = document.querySelector('.search-item')
 const results = document.querySelector('.col-1')
+const resultRecipe = document.querySelector('.col-2')
 const resultItem = document.querySelectorAll('.results-item')
 
 const searchRecipe = async function(query){
@@ -13,6 +14,16 @@ const displayRecipe = async function(recipe_id){
     return result.json()
 }
 
+async function getRecipe(recipe_id){
+    recipe = await displayRecipe(recipe_id)
+    recipe = recipe.recipe
+    console.log(recipe)
+
+    resultRecipe.innerHTML = `
+    <h1> ${recipe.title} </h1>
+    <img src="${recipe.image_url}">
+`
+}
 searchForm.onsubmit = async function getRecipeList(e){
 e.preventDefault()
 let recipeList = await searchRecipe(searchItem.value)
@@ -25,10 +36,7 @@ for(i=0; i<recipeList.length; i++){
     recipeList
     results.innerHTML +=
     `
-    <div class ="results-item" onclick="hello(${recipeList[i].recipe_id})">
-        <div class = "result-img" >
-            <img src = "${recipeList[i].image_url}">
-        </div>
+    <div class ="results-item" onclick="getRecipe(${recipeList[i].recipe_id})">
         <div class = "result-info">
             <p> Title: ${recipeList[i].title} </p>
             <p> Publisher: ${recipeList[i].publisher} </p>
